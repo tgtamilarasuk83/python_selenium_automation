@@ -52,4 +52,17 @@ else:
     print("Sucessfully logout")
     
     
+from selenium.webdriver.common.action_chains import ActionChains
+
+def scroll_to_element(xpath):
+    element = wait.until(
+        EC.presence_of_element_located((By.XPATH, xpath))
+    )
+
+    ActionChains(driver)\
+        .scroll_to_element(element)\
+        .perform()
+
+    return element
+    
 
